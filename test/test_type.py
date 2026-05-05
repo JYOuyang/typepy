@@ -76,7 +76,9 @@ class Test_DateTime:
             strict_level=StrictLevel.MIN,
         ).convert()
         assert jst_dt.tzinfo.utcoffset(jst_dt) == timedelta(seconds=32400)
-        got = typepy.DateTime(jst_dt, strict_level=StrictLevel.MIN, timezone=ZoneInfo("UTC")).convert()
+        got = typepy.DateTime(
+            jst_dt, strict_level=StrictLevel.MIN, timezone=ZoneInfo("UTC")
+        ).convert()
         assert got.tzinfo.utcoffset(got) == timedelta(0)
 
     def test_normal_datetime_dst_ambiguous_default_fold(self):
