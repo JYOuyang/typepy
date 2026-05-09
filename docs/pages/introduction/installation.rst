@@ -38,4 +38,3 @@ Optional dependencies
 These packages can be installed via ``pip install typepy[datetime]``:
 
 - `python-dateutil <https://dateutil.readthedocs.io/en/stable/>`__
-- `pytz <https://pypi.org/project/pytz/>`__
