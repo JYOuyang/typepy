@@ -39,6 +39,9 @@ with open(os.path.join(REQUIREMENT_DIR, "requirements.txt")) as f:
 with open(os.path.join(REQUIREMENT_DIR, "test_requirements.txt")) as f:
     tests_requires = [line.strip() for line in f if line.strip()]
 
+with open(os.path.join(REQUIREMENT_DIR, "docs_requirements.txt")) as f:
+    docs_requires = [line.strip() for line in f if line.strip()]
+
 
 DATETIME_REQUIRES = [
     "python-dateutil>=2.8.0,<3.0.0",
@@ -72,7 +75,11 @@ setuptools.setup(
     },
     python_requires=">=3.9",
     install_requires=install_requires,
-    extras_require={"datetime": DATETIME_REQUIRES, "test": tests_requires + DATETIME_REQUIRES},
+    extras_require={
+        "datetime": DATETIME_REQUIRES,
+        "docs": docs_requires,
+        "test": tests_requires + DATETIME_REQUIRES,
+    },
     classifiers=[
         "Development Status :: 5 - Production/Stable",
         "Intended Audience :: Developers",
